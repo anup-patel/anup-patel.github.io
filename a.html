@@ -1,0 +1,120 @@
+<html>
+  <head>
+  	<title>Run Rate Calculator</title>
+ <style>
+  	.row-heading
+{
+  font-size:1.3rem;
+  font-weight:bold;
+}
+.total
+{
+  font-size:2rem;
+  font-weight:bold;
+}
+.total-val
+{
+  font-size:2rem;
+  border:
+}
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	
+	function calculateTotal()
+{
+  let unit_price={
+    sugar: 22,
+    butter: 12,
+    eggs: 2,
+    vanilla:43    
+  };
+  let run={}
+  
+  run.run_rate = ($("#run_score").val() / $("#over_bat").val() - $("#run_given").val() / $("#over_bowl").val())
+ 
+ 
+  let total = run.run_rate
+
+ 
+  $("#total_value").text(total);
+  
+}
+
+$(function()
+ {
+    $(".qty").on("change keyup",calculateTotal)
+})
+
+
+
+</script>
+  </head>
+ 
+  <body>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-6 row-heading">
+          
+        </div>
+        <div class="col-3 row-heading">
+          
+        </div>
+       
+        
+      </div>
+      <div class="row">
+        <div class="col-6">
+         कितने रन बनाए
+        </div>
+        <div class="col-3">
+          <input type="number" value="0" class="qty" id="run_score"/>
+        </div>
+       
+      </div>
+      
+       <div class="row my-3">
+        <div class="col-6">
+          कितने ओवर में रन बनाए 
+        </div>
+        <div class="col-3">
+          <input type="number" value="0" class="qty" id="over_bat"/>
+        </div>
+       
+      </div>
+      
+      <div class="row my-3">
+        <div class="col-6">
+          कितने रन दिए
+        </div>
+        <div class="col-3">
+          <input type="number" class="qty" value="0" id="run_given"/>
+        </div>
+        
+      </div>
+      
+      <div class="row my-3">
+        <div class="col-6">
+          कितने ओवर बोलिंग किए
+        </div>
+        <div class="col-3">
+          <input type="number" class="qty" value="0" id="over_bowl"/>
+        </div>
+      
+      </div>
+      
+      <div class="row my-4">
+        <div class="col-9 text-right total">
+         Run Rate
+        </div>
+        
+        <div class="col-2 total-val">
+          <span id="total_value">0</span
+        </div>
+      </div>
+      
+    </div>
+
+  </body> 
+</html>
